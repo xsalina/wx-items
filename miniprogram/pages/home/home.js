@@ -1,4 +1,5 @@
 // miniprogram/pages/home/home.js
+const db = wx.cloud.database();//初始化数据库
 Page({
 
   /**
@@ -62,5 +63,60 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  //新增用户
+  addUser(){
+      db.collection('user')
+      .add({
+        data:{
+          name:'salina',
+          age:18
+        }
+      })
+      .then( res => {
+        console.log('添加成功',res)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  },
+  //更新用户
+  updateUser(){
+    db.collection('user').doc('1583913633437_0.4624225424598627_33571850')
+    .update({
+      data:{
+        age:10
+      }
+    })
+    .then(res => {
+      console.log('更新成功',res)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  },
+  //查询数据
+  search(){
+    db.collection('user').where({
+      name:"salina"
+    })
+    .get()
+    .then(res => {
+      console.log('查找成功',res)
+    })
+    .catch(err => {
+      console.log(res)
+    })
+  },
+  //删除成功
+  delete(){
+    db.collection('user').doc("1583913633437_0.4624225424598627_33571850")
+    .remove()
+    .then(res => {
+      console.log('删除成功',res)
+    })
+    .catch(err => {
+      console.log('删除失败',err)
+    })
   }
 })

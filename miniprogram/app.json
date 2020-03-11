@@ -1,8 +1,8 @@
 {
   "pages": [
     "pages/indexPer/indexPer",
-    "pages/home/home",
     "pages/index/index",
+    "pages/home/home",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
     "pages/databaseGuide/databaseGuide",
@@ -24,7 +24,5 @@
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json",
-  "style": "v2",
-  "usingComponents": {
-  }
+  "style": "v2"
 }
