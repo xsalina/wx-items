@@ -1,0 +1,4 @@
+/* miniprogram/pages/indexPer/indexPer.wxss */
+page{
+  background-color:#b3d4db;
+}
