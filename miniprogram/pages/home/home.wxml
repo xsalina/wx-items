@@ -1,6 +1,19 @@
 <!--miniprogram/pages/home/home.wxml-->
-<button bindtap='addUser'>新增用户</button>
-<button bindtap=' '>更新用户</button>
-<button bindtap='search'>查找数据</button>
-<button bindtap='delete'>删除单个数据</button>
-<button bindtap='delete'>删除多个数据</button>
+<view>云数据库</view>
+
+<van-button type="info" bindtap='addUser'>新增用户</van-button>
+<van-button type="info" bindtap=' '>更新用户</van-button>
+<van-button type="info" bindtap='search'>查找数据</van-button>
+<van-button type="info" bindtap='delete'>删除单个数据</van-button>
+<van-button type="info" bindtap='delete'>删除多个数据</van-button>
+<view>云函数</view>
+<van-button bindtap='sum'>调用求和的云函数</van-button>
+<van-button bindtap='batchDelete'>删除名字叫salina的所有用户</van-button>
+<view>云存储 npm install --save wx-server-sdk@latest</view>
+<text>uploadEile、downloadFile、deleteFile、getTempFileURL</text>
+<van-button bindtap='upload'>上传图片</van-button>
+<van-button bindtap='getFile'>文件展示</van-button>
+<block wx:for="{{images}}">
+  <image style="width:100vw" src='{{item.fileID}}'></image>
+  <van-button size='mini' data-fileid='{{item.fileID}}' bindtap='downloadFile'>文件下载</van-button>
+</block>

@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    iamges:[]
   },
 
   /**
@@ -118,5 +118,120 @@ Page({
     .catch(err => {
       console.log('删除失败',err)
     })
+  },
+  //调用云函数
+  sum(){
+    wx.cloud.callFunction({
+      name:'sum',
+      data:{
+        a:2,
+        b:3
+      }
+    })
+    .then( res => {
+      console.log(res)
+    })
+    .catch( err => {
+      console.log(err)
+    })
+  },
+  batchDelete(){
+    wx.cloud.callFunction({
+      name:'batchDelete',
+      data:{
+        name:'salina'
+      }
+    })
+    .then(res => {
+      console.log(res)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  },
+  upload(){
+    //本地相册货拍照选择图片
+    wx.chooseImage({
+      count: 1,//最多支持9张图片
+      sizeType: ['original', 'compressed'],//源文件还是压缩
+      sourceType: ['album', 'camera'],//来源 拍照 还是相册
+      success (res) {
+        // tempFilePath可以作为img标签的src属性显示图片
+        const tempFilePaths = res.tempFilePaths[0]
+        console.log(77777,tempFilePaths)
+        wx.cloud.uploadFile({
+          cloudPath:new Date().getTime() + '.png',//上传的云端路径
+          filePath:tempFilePaths,//小程序临时文件路径
+          success:res => {
+            //返回文件ID
+            console.log(res)
+            console.log(res.fileID)
+            //存储到数据库
+            db.collection('image').add({
+              data:{
+                fileID:res.fileID
+              }
+            })
+            .then(res => {
+
+              console.log(res)
+            })
+            .catch(err => {
+              console.log(err)
+            })
+          },
+          fail(){
+            console.error
+          }
+        })
+      }
+    })
+  },
+  //文件展示
+  getFile(){
+    wx.cloud.callFunction({
+      name:'login',
+    })
+    .then(res => {
+      console.log(636,res)
+      db.collection('image').where({
+        _openid:res.result.openid
+      })
+      .get()
+      .then(res2 => {
+        this.setData({images:res2.data})
+        console.log(77,res2)
+      })
+      .catch(err2 => {
+        console.log(444,err2)
+      })
+    })
+    .catch(err => {
+      console.log(998,err)
+    })
+  },
+  //下载文件
+  downloadFile(e){
+    console.log(e.target.dataset)
+    wx.cloud.downloadFile({
+      fileID:e.target.dataset.fileid,//文件ID
+      success(res){
+       //返回临时文件路径
+       console.log(33355,res.tempFilePath)
+       //保存图片到系统相册。
+       wx.saveImageToPhotosAlbum({
+        //  filePath:res.tempFilePath,
+        success(res) { 
+          wx.showToast({
+            title: '保存成功',
+          })
+        }
+      })
+      },
+      fail(err){
+
+      }
+    })
   }
+  
 })
