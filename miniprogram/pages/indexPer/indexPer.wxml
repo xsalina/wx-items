@@ -2,9 +2,9 @@
 <view>
    <view style='text-align:center'>
    <view style='margin-top:180px'>
-    <image style='width:80px;height:80px;border-radius:50%;' src="{{avatarUrl}}"></image>
+    <image style='width:80px;height:80px;border-radius:50%;' src="{{userInfo.avatarUrl}}"></image>
    </view >
-   <view style='margin-top:10px' >欢迎您，{{userInfo.nickName}}<van-icon name="like-o" /></view>
-     <view bindtap='intoIndex' style='width:80px;color:#405f80;padding:8px 10px;border:1px solid #405f80;font-size:12px;letter-spacing:1px;margin:60px auto 0 auto;border-radius:10px'>开启浪漫之旅</view>
+   <view style='margin-top:10px' >欢迎您，{{userInfo.nickName}}<van-icon color='red' name="like" /></view>
+     <view bindtap='intoIndex' style='width:130px;color:#405f80;padding:10px;border:1px solid #405f80;font-size:12px;letter-spacing:1px;margin:60px auto 0 auto;border-radius:10px'>选择困难症的菜谱</view>
    </view>
 </view>

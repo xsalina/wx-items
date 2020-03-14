@@ -1,0 +1,145 @@
+<!--pages/sliver/sliver/index.wxml-->
+
+<view style='display:flex'>
+  <view style='width:100px;background-color:#f5f5f5;height:calc(100vh);'>
+    <view class='left-nav' style='text-align:center'>
+      <view class="{{activeTab == '炒菜'?'back-active':''}}" bindtap='onClickChangeTab' data-index="炒菜">
+        <text class="{{activeTab == '炒菜'?'border-active':''}}"></text>炒菜</view>
+      <view data-index="汤" bindtap='onClickChangeTab' class="{{activeTab == '汤'?'back-active':''}}">
+        <text class="{{activeTab == '汤'?'border-active':''}}"></text>汤</view>
+      <view data-index="面食" bindtap='onClickChangeTab'  class="{{activeTab == '面食'?'back-active':''}}">
+        <text class="{{activeTab == '面食'?'border-active':''}}"></text>面食</view>
+         <view data-index="水果" bindtap='onClickChangeTab'  class="{{activeTab == '水果'?'back-active':''}}">
+        <text class="{{activeTab == '水果'?'border-active':''}}"></text>水果</view>
+
+    </view>
+  </view>
+  <scroll-view scroll-y="true">
+    <!-- 炒菜的列表 -->
+    <view wx:if="{{activeTab == '炒菜'}}" class='right-list'>
+      <view class='servicelist' wx:if="{{foods.dish.length}}">
+      <block wx:for="{{foods.dish}}" wx:key="{{index}}">
+      <view style='text-align:center'>
+          <image class='images'  data-type="isCloseDish" bindlongtap="longTap" bindtouchstart="touchStart" bindtouchend="touchEnd"  src='{{item.fileID}}'>
+            <van-icon wx:if="{{isCloseDish && item._id}}" size="20px" style='position:absolute;top:0px;right:0px;color:red' name="close" 
+            catchtap="closeFood"
+            data-id="{{item._id}}"
+            data-type="isCloseDish"
+            />
+          </image>
+          <view>{{item.foodName}}</view>
+          
+        </view>
+
+      </block>
+        
+        
+       
+      </view>
+      <view class='more' wx:else>暂无数据，请前去更多添加~</view>
+      <view style='height:50px'></view>
+    </view>
+    <!-- 汤的列表 -->
+    <view wx:if="{{activeTab == '汤'}}" class='right-list'>
+      <view class='servicelist' wx:if="{{foods.soup.length}}">
+      <block wx:for="{{foods.soup}}" wx:key="{{index}}">
+        <view style='text-align:center'>
+          <image class='images'  data-type="isCloseSoup" bindlongtap="longTap" bindtouchstart="touchStart" bindtouchend="touchEnd"  src='{{item.fileID}}'>
+            <van-icon wx:if="{{isCloseSoup && item._id}}" size="20px" style='position:absolute;top:0px;right:0px;color:red' name="close" 
+            catchtap="closeFood"
+            data-id="{{item._id}}"
+            data-type="isCloseSoup"
+            />
+          </image>
+          <view>{{item.foodName}}</view>
+          
+        </view>
+      </block>
+        
+        
+       
+      </view>
+      <view class='more' wx:else>暂无数据，请前去更多添加~</view>
+      <view style='height:50px'></view>
+    </view>
+    <!-- 面食的列表 -->
+    <view wx:if="{{activeTab == '面食'}}" class='right-list'>
+       <view class='servicelist' wx:if="{{foods.wheaten.length}}">
+       <block wx:for="{{foods.wheaten}}" wx:key="{{index}}">
+        <view style='text-align:center'>
+          <image class='images'  data-type="isCloseWheaten" bindlongtap="longTap" bindtouchstart="touchStart" bindtouchend="touchEnd"  src='{{item.fileID}}'>
+            <van-icon wx:if="{{isCloseWheaten && item._id}}" size="20px" style='position:absolute;top:0px;right:0px;color:red' name="close" 
+            catchtap="closeFood"
+            data-id="{{item._id}}"
+            data-type="isCloseWheaten"
+            />
+          </image>
+          <view>{{item.foodName}}</view>
+          
+        </view>
+       </block>
+        
+        
+       
+      </view>
+       <view class='more' wx:else>暂无数据，请前去更多添加~</view>
+      <view style='height:50px'></view>
+    </view>
+    <!-- 水果的列表 -->
+    <view wx:if="{{activeTab == '水果'}}" class='right-list'>
+       <view class='servicelist' wx:if="{{foods.fruit.length}}">
+       <block wx:for="{{foods.fruit}}" wx:key="{{index}}">
+       <view style='text-align:center'>
+          <image class='images'  data-type="isCloseFruit" bindlongtap="longTap" bindtouchstart="touchStart" bindtouchend="touchEnd"  src='{{item.fileID}}'>
+            <van-icon wx:if="{{isCloseFruit && item._id}}" size="20px" style='position:absolute;top:0px;right:0px;color:red' name="close" 
+            catchtap="closeFood"
+            data-id="{{item._id}}"
+            data-type="isCloseFruit"
+            />
+          </image>
+          <view>{{item.foodName}}</view>
+          
+        </view>
+       </block>
+        
+        
+       
+      </view>
+      <view class='more' wx:else>暂无数据，请前去更多添加~</view>
+      <view style='height:50px'></view>
+    </view>
+  </scroll-view>
+
+
+
+</view>
+
+
+<view class='stick-dis'>
+  <view class='disp-flex'>
+    <view class='bottom-cart'>
+      <view class='cart-icon' bindtap="turnOnItems">
+        <van-icon size='36px' color='#4B98FF' name="cart-circle" info='{{orderList.length}}' />
+      </view>
+      <view class='text-buy'>
+        <view>销次：{{allQuantity}}</view>
+        <view>实付：{{allCollect}}</view>
+      </view>
+    </view>
+    <view class='cart-status'>
+      <view class='waitorder' bindtap="cancelled">随机</view>
+      <view class='buy' bindtap="jumpOrder">更多</view>
+    </view>
+  </view>
+
+</view>
+
+<!-- 人数弹窗 -->
+<view class='people-poupe'>
+  <van-popup show="{{peopleNumber}}" style='z-index:102' position="bottom">
+    <view style="height:280px">
+      <van-picker show-toolbar columns="{{ columns }}" title="请选择人数" bind:cancel='onCancelPeople' bind:confirm="onConfirmPeople" />
+    </view>
+
+  </van-popup>
+</view>

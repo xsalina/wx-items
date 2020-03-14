@@ -1,5 +1,6 @@
 //app.js
 App({
+  require: function ($uri) { return require($uri) },
   onLaunch: function () {
     
     if (!wx.cloud) {

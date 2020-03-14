@@ -1,19 +1,47 @@
 {
   "pages": [
+    "pages/accredit/accredit",
     "pages/indexPer/indexPer",
-    "pages/home/home"
-   
+    "pages/home/home",
+    "pages/foodbook/foodbook",
+    "pages/addClassify/addClassify",
+    "pages/randommenu/randommenu"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "6.22",
+    "navigationBarTitleText": "菜谱",
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json",
   "style": "v2",
   "usingComponents": {
-    "van-button": "@vant/weapp/button"
+    "van-tab": "@vant/weapp/tab",
+    "van-tabs": "@vant/weapp/tabs",
+    "van-tabbar": "@vant/weapp/tabbar",
+    "van-tabbar-item": "@vant/weapp/tabbar-item",
+    "van-icon": "@vant/weapp/icon",
+    "van-search": "@vant/weapp/search",
+    "van-sidebar": "@vant/weapp/sidebar",
+    "van-sidebar-item": "@vant/weapp/sidebar-item",
+    "van-divider": "@vant/weapp/divider",
+    "van-sticky": "@vant/weapp/sticky",
+    "van-swipe-cell": "@vant/weapp/swipe-cell",
+    "van-popup": "@vant/weapp/popup",
+    "van-radio-group": "@vant/weapp/radio-group",
+    "van-radio": "@vant/weapp/radio",
+    "van-picker": "@vant/weapp/picker",
+    "van-toast": "@vant/weapp/toast",
+    "van-field": "@vant/weapp/field",
+    "van-cell": "@vant/weapp/cell",
+    "van-cell-group": "@vant/weapp/cell-group",
+    "van-button": "@vant/weapp/button",
+    "van-panel": "@vant/weapp/panel",
+    "van-dialog": "@vant/weapp/dialog",
+    "van-dropdown-menu": "@vant/weapp/dropdown-menu",
+    "van-dropdown-item": "@vant/weapp/dropdown-item",
+    "van-datetime-picker": "@vant/weapp/datetime-picker",
+      "van-loading": "@vant/weapp/loading"
   }
 }

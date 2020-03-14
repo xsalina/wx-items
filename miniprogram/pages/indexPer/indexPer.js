@@ -1,4 +1,6 @@
 // miniprogram/pages/indexPer/indexPer.js
+const app = getApp()
+const storageTools = app.require('/comm/locaStorage.js')
 Page({
 
   /**
@@ -14,21 +16,8 @@ Page({
    */
   onLoad: function (options) {
      // 获取用户信息
-     wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
-            success: res => {
-              this.setData({
-                avatarUrl: res.userInfo.avatarUrl,
-                userInfo: res.userInfo
-              })
-            }
-          })
-        }
-      }
-    })
+    this.setData({ userInfo: JSON.parse(storageTools.getUserInfo())})
+    console.log(JSON.parse(storageTools.getUserInfo()))
    
   },
 
@@ -81,8 +70,10 @@ Page({
 
   },
   intoIndex(){
+    
     wx.navigateTo({    //保留当前页面，跳转到应用内的某个页面（最多打开5个页面，之后按钮就没有响应的）
-      url:"/pages/home/home"
+      url:"/pages/foodbook/foodbook"
+      // url:"/pages/home/home"
     })
    
   }

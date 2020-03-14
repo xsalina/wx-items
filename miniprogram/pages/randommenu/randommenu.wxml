@@ -1,0 +1,39 @@
+<!--pages/randommenu/randommenu.wxml-->
+<view>
+  <view style='overflow:hidden'>
+  <block wx:for="{{arrMenu}}" wx:key="{{index}}">
+   <view class='list-item' style='text-align:center'>
+      <image style ='width:80px;height:80px;' src='{{item.fileID}}'></image>
+      <view>{{item.foodName}}</view>
+    </view>
+
+  </block>
+   
+  </view>
+   <view style='width:100%;position:fixed;left:0;bottom:0;height:45px;line-height:45px;background-color:#4b98ff;color:#fff;text-align:center;' bindtap='save'>
+    开始随机
+  </view>
+ <van-popup show="{{ isCartItems }}" bind:close="onClose">
+  <view style='width:300px;height:300px'>
+    <view style='text-align:center;padding:20px 0'>
+      今日菜单如下~
+    </view>
+   
+    <view class='list-goods' style='display:flex;justify-content:center;'>
+     <block wx:for="{{createFood}}" wx:key="{{index}}">
+     <view>
+        <image src="{{item.fileID}}" style='width:80px;height:80px;margin-bottom:5px'></image>
+        <view style="text-align:center">{{item.foodName}}</view>
+      </view>
+    </block>
+      
+      
+    </view>
+    
+  
+  </view>
+ </van-popup>
+
+
+
+</view>

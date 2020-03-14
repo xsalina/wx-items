@@ -30,13 +30,45 @@
 		"game": {
 			"list": []
 		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
 		"miniprogram": {
 			"current": 0,
 			"list": [
 				{
 					"id": -1,
 					"name": "db guide",
-					"pathName": "pages/databaseGuide/databaseGuide"
+					"pathName": "pages/databaseGuide/databaseGuide",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "accredit",
+					"pathName": "pages/accredit/accredit",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "foodbook",
+					"pathName": "pages/foodbook/foodbook",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "addClassify",
+					"pathName": "pages/addClassify/addClassify",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "randommenu",
+					"pathName": "pages/randommenu/randommenu",
+					"scene": null
 				}
 			]
 		}

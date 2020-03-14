@@ -1,0 +1,38 @@
+/* miniprogram/pages/accredit/accredit.wxss */
+
+.headView {
+  margin: 90rpx 50rpx 90rpx 50rpx; /*上右下左*/
+}
+
+.headImageView {
+  display: block;
+  height: 50px;
+  text-align: center;
+  margin: 0 25px 25px 25px;
+}
+
+.headImage {
+ 
+  width: 80px;
+  height: 80px;
+  border-radius:50%;
+}
+
+.titleText {
+  margin-top: 40px;
+  font-size: 14px;
+  color: #020e0f;
+  text-align: center;
+}
+
+.contentText {
+  font-size: 14px;
+  color: #666;
+  text-align: center;
+}
+
+.authBtn {
+  margin: 25px 25px 0 25px;
+  height: 40px;
+  font-size: 17.5px;
+}

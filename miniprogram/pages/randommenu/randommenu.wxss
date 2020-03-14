@@ -1,0 +1,26 @@
+/* pages/randommenu/randommenu.wxss */
+.list-item{
+  float:left;
+  margin:10px 0 10px 10px;
+}
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.block {
+  width: 85%;
+  height: 300px;
+  background-color: #fff;
+}
+.list-goods{
+  display: flex;
+justify-content: center;
+
+
+}
+.list-goods > view{
+  margin:10px;
+}
