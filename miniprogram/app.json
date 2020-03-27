@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/enter/enter",
     "pages/accredit/accredit",
     "pages/indexPer/indexPer",
     "pages/home/home",
@@ -42,6 +43,6 @@
     "van-dropdown-menu": "@vant/weapp/dropdown-menu",
     "van-dropdown-item": "@vant/weapp/dropdown-item",
     "van-datetime-picker": "@vant/weapp/datetime-picker",
-      "van-loading": "@vant/weapp/loading"
+    "van-loading": "@vant/weapp/loading"
   }
 }

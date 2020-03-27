@@ -1,0 +1,7 @@
+<!--miniprogram/pages/enter/enter.wxml-->
+<view style='margin-bottom:20px'>
+  <view style='width:210px;margin:20px auto;text-align:center；font-size:12px;color:#b3d4db'>一款选择困难证菜谱的小程序</view>
+   <image src="../../images/840.jpg"></image>
+   <image src="../../images/demo.jpg"></image>
+   <view bindtap='goto' class='goto' style='margin:0 auto;margin-top:25px;text-align:center'>去登陆</view>
+</view>

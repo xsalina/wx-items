@@ -1,0 +1,18 @@
+/* miniprogram/pages/enter/enter.wxss */
+page{
+  background-color:#f5f5f5;
+}
+view image{
+  display:block;
+  width:100%;
+}
+.goto{
+  margin: 0 auto;
+  margin-top: 25px;
+  text-align: center;
+  border: 1px solid #eee;
+  border-radius: 20px;
+  padding: 10px 0;
+  margin-bottom: 15px;
+
+}
